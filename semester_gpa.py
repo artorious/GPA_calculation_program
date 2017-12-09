@@ -13,7 +13,22 @@ def get_grades():
     Returns a list of sublists, in which each sublist contains the letter
     grade for a given course, and the assiciated number of credits. 
     '''
-    return
+    # Init
+    semester_info = []
+    more_grades = True
+    empty_str = ''
+
+    while more_grades:
+        course_grade = input('Enter grade (hit Enter if done): ')
+        while course_grade not in ('A','B','C','D','F', empty_str):
+            course_grade = input('Enter Letter grade received: ')
+        if course_grade == empty_str:
+            more_grades = False
+        else:
+            num_credits = int(input('Enter number of credits: '))
+            semester_info.append([num_credits, course_grade])
+                
+    return semester_info
 
 
 def calculate_gpa(semester_grades, cumm_gpa_info):
